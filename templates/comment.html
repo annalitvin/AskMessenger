@@ -1,0 +1,11 @@
+{% verbatim %}
+<script id="comment_tmpl" type="text/x-handlebars-template">
+	{{#each comments}}
+		<div class="comment">
+			<p><strong>{{ author}}</strong>:</p>
+			<p>{{ text }}</p>
+			<p>Добавлено: {{ date }}</p>
+		</div>
+	{{/each}}
+</script>
+{% endverbatim %}

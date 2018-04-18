@@ -1,0 +1,11 @@
+{% verbatim %}
+<script id="question_link_tmpl" type="text/x-handlebars-template">
+	{{#each questions}}
+	<div>
+		<h3>{{author}}:</h3>
+		<a class="question_block_question" href="/question/{{id}}">{{question}}</a>
+		<p class="question_block_date">{{pub_date}}</p>
+	</div>
+	{{/each}}
+</script>
+{% endverbatim %}

@@ -1,0 +1,16 @@
+﻿{% extends 'index.html' %}
+{% load static %} 
+
+{% block content %}
+    
+	<form class="add_question_form" action="" method="post">                
+        <label>Введите вопрос</label>
+        <textarea name="message">{{ form.message }}</textarea>
+         
+        <input type="submit" value="Отправить">
+        {% csrf_token %}
+    </form>
+	<div class="return_link_block">
+		<a class="return_link" href="/">На главную</a>
+	</div>
+{% endblock %}

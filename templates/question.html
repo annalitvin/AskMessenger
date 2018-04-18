@@ -1,0 +1,39 @@
+﻿{% extends 'index.html' %}
+{% load static %} 
+{% block content %}
+		<div class="return_link_block">
+			<a class="return_link" href="/">Вернуться к списку вопросов</a>
+		</div>
+		<div class="return_link_subblock">	
+		</div>
+		<div >	
+			<h3>Вопрос:</h3>
+		</div>		
+        <div class="question_data">
+			
+			<h2><strong>{{ question.author}}</strong>:</h2>
+			<p class="question_text">{{ question.question|safe }}</p>
+			<p>Опубликовано: {{ question.pub_date }}</p>
+        </div>
+	{% if user.is_authenticated %}
+	<form class="add_comment_form" action="" method="post">                
+        <label>Ответить:</label>
+        <textarea name="message">{{ form.message }}</textarea>
+         
+        <input id="add_comment_button" type="submit" value="Отправить">
+        {% csrf_token %}
+    </form>
+	{% endif %}
+	<h2>Ответы:</h2>
+	<div id="comments_list_block">
+		{% for comment in comments %}
+			<div>
+				<p><strong>{{ comment.author}}</strong>:</p>
+				<p>{{ comment.text|safe }}</p>
+				<p>Добавлено: {{ comment.date }}</p>
+			</div>
+		{% endfor %}
+	</div>
+	{% include "comment.html" %}
+    <script src="{% static 'js/comments_update.js' %}" type="text/javascript"></script>
+{% endblock %}

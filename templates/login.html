@@ -1,0 +1,14 @@
+﻿{% extends 'index.html' %}
+{% load static %} 
+
+{% block content %}
+    <div class="return_link_block">
+		<a class="return_link" href="/">Вернуться к списку вопросов</a>
+	</div>
+    <form class="login_form" action="" method="post">
+      {% csrf_token %}
+      <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+      {{ form.as_p }}
+      <button type="submit">Войти</button>
+    </form>
+{% endblock %}
